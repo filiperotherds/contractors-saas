@@ -2,10 +2,14 @@
     "name": "@saas/api",
     "version": "1.0.0",
     "scripts": {
-        "dev": "tsx watch src/index.ts"
+        "dev": "tsx watch src/http/server.ts"
     },
     "dependencies": {
-        "@saas/auth": "workspace:*"
+        "@fastify/cors": "^11.1.0",
+        "@saas/auth": "workspace:*",
+        "fastify": "^5.4.0",
+        "fastify-type-provider-zod": "^5.0.3",
+        "zod": "^4.0.14"
     },
     "devDependencies": {
         "@saas/eslint-config": "workspace:*",
