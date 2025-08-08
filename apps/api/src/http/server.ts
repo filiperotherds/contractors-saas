@@ -16,6 +16,7 @@ import { getProfile } from './routes/auth/get-profile'
 import { errorHandler } from './error-handler'
 import { requestPasswordRecover } from './routes/auth/request-password-recover'
 import { resetPassword } from './routes/auth/reset-password'
+import { env } from '@saas/env'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -31,7 +32,14 @@ app.register(fastifySwagger, {
       description: 'Contractors App backend service.',
       version: '1.0.0',
     },
-    servers: [],
+    securityDefinitions: {
+      Authorization: {
+        type: 'apiKey',
+        in: 'header',
+        name: 'Authorization',
+        description: 'JWT obtained from authentication route.',
+      },
+    },
   },
   transform: jsonSchemaTransform,
 })
@@ -41,7 +49,7 @@ app.register(fastifySwaggerUI, {
 })
 
 app.register(fastifyJwt, {
-  secret: 'my-jwt-secret',
+  secret: env.JWT_SECRET,
 })
 
 app.register(fastifyCors)
