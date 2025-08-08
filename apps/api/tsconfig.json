@@ -1,7 +1,11 @@
 {
-    "extends": "@saas/tsconfig/node.json",
-    "include": ["src/**/*"],
-    "compilerOptions": {
-      "verbatimModuleSyntax": false
+  "extends": "@saas/tsconfig/node.json",
+  "include": ["src/**/*", "@types/*.d.ts"],
+  "compilerOptions": {
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
+  }
 }
