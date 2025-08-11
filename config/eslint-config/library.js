@@ -1,6 +1,6 @@
 /** @type {import('eslint').Linter} */
 module.exports = {
-  extends: ['@rocketseat/eslint-config/react'],
+  extends: ['eslint'],
   plugins: ['simple-import-sort'],
   rules: {
     'simple-import-sort/imports': 'error'
